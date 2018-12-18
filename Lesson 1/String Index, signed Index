@@ -7,4 +7,4 @@ print(str2[5])
 print(str2[2:18])
 print(str2[-5])
 print(str2[-6:])
-print(str1,str2,sep=' && ')
+print(str1,str2,sep=' && ') # 선택 print 인자 sep

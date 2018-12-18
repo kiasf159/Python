@@ -1,0 +1,5 @@
+fixedCosts = 5000
+price_Unit = 10
+cost_Unit = 5
+breakEvenPoint = fixedCosts / (price_Unit - cost_Unit)
+print("You have to sell", breakEvenPoint, "pieces")

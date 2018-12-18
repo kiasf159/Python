@@ -1,0 +1,9 @@
+str1 = "Python"
+str2 = "This is Practice of Python"
+
+print(str1)
+print(str1[2])
+print(str2[5])
+print(str2[2:18])
+print(str2[-5])
+print(str2[-6:])

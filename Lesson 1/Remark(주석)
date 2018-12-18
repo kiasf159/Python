@@ -1,0 +1,5 @@
+# Remark(주석)을 의미한다
+## Alt + 3 = Selected Row is Changed Remark
+## Alt + 4 = Release
+name = input('Enter your name : ')
+print(name)

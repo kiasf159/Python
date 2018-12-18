@@ -1,0 +1,39 @@
+str1 = [1, 3, 5, 7, 9, 11]
+str2 = ['a', 's', 'd', 'f', 'g', 'h']
+
+print(len(str1)) # 6
+print(max(str2)) # s
+print(min(str1)) # 1
+print(sum(str1)) # 36
+print(str1.count(11)) # 1
+str2.append('j')
+print(str2)
+str2.extend(['k','l'])
+print(str2)
+print(str1[1:3]) # Slice
+print(str2[-6:-3])
+print("a,b,c".split(',')) # ['a', 'b', 'c']
+print("a\nb\nc".split()) # ['a', 'b', 'c']
+print(" / ".join(str2))
+print('\n')
+
+# Tuple = Better than List
+t = 5, 7, 6, 2
+print(t)
+print(len(t), max(t), min(t), sum(t))
+print(t[0], t[-1], t[ :2])
+print('\n')
+# Swap
+x = 50
+y = 100
+x,y=y,x
+print(x,y)
+print('\n')
+
+# Inherent List
+regions = [("Northeast", 55.3), ("MidWest", 66.9), ("South", 114.6),
+           ("West",71.9)]
+print("The 2010 population of the", regions[1][0], "was", regions[1][1],
+      "million.")
+totalpop = regions[0][1] + regions[1][1] + regions[2][1] + regions[3][1]
+print("Total 2010 population of the U.S: {0:.1f} million.".format(totalpop))

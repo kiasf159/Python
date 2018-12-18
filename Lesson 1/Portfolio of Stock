@@ -1,0 +1,19 @@
+Fund_A = float(input("Enter amount invested in SPY: "))
+Fund_B = float(input("Enter amount invested in QQQ: "))
+Fund_C = float(input("Enter amount invested in EEM: "))
+Fund_D = float(input("Enter amount invested in VXX: "))
+## input은 항상 문자열 형태로 결과가 나오기 때문
+print("\n")
+print("etf percentage".upper())
+print("----------------")
+
+SPY = 55.47
+print("SPY: ", SPY, "%")
+QQQ = 14.84
+print("QQQ: ", QQQ, "%")
+EEM = 21.87
+print("EEM: ", EEM, "%")
+VXX = 7.81
+print("VXX: ", VXX, "%")
+Total_Amount_Invested = Fund_A *(1+ SPY)/100 + Fund_B * (1+QQQ)/100 + Fund_C * (1+EEM)/100 + Fund_D * (1+VXX)/100
+print("TOTAL AMOUNT INVESTED: $",Total_Amount_Invested)

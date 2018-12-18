@@ -1,0 +1,15 @@
+price = 12345678
+
+print(price)
+print("{0:10,d}".format(price)) # Comfort
+
+print("2017 Rank".ljust(10), "Player".ljust(20), "HR".rjust(3), sep="")
+print('1'.center(10), "Bonds".ljust(20), "760".rjust(3), sep="")
+print('2'.center(10), "Williams".ljust(20), "727".rjust(3), sep="")
+print('3'.center(10), "Kai".ljust(20), "725".rjust(3), sep="")
+print('\n')
+print("{0:^10s}{1:<20s}{2:>3s}".format("2018 Rank","Player","HR"))
+print("{0:^10s}{1:<20s}{2:>3s}".format("1","Kai","777"))
+print("{0:^10s}{1:<20s}{2:>3s}".format("2","Williams","763"))
+print("{0:^10s}{1:<20s}{2:>3s}".format("3","Bonds","760"))
+# It's same.

@@ -1,0 +1,8 @@
+initialDeposit = eval(input("Enter amount deposited : "))
+prompt = "Enter annual rate of interest (such as .02, .03 ..) :"
+annualRateOfInterest = eval(input(prompt))
+monthlyRateOfInterest = annualRateOfInterest / 12
+
+print("{0}{1:>15}".format("Month","Balance"))
+for i in range(3, 13, 3):
+    print("{0:2} \{1:<15,.2f}".format(i, initialDeposit * (1 + monthlyRateOfInterest)**i))

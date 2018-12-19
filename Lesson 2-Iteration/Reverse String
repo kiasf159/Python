@@ -1,0 +1,7 @@
+word = input("Enter a word: ")
+reversedWord = ""
+for ch in word:
+    print(ch)
+    reversedWord = ch + reversedWord
+    print(reversedWord)
+print("The reversed word is " + reversedWord + ".")

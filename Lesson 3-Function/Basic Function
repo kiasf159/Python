@@ -1,0 +1,22 @@
+def Sum_1(a):
+    a = a + 11
+    return a
+
+def Swap(a,b):
+    a = a - b
+    b = a + b
+    a = b - a
+    return a, b
+
+def Sum_2(a):
+    a = a + 22
+    a = Sum_1(a)
+    return a
+
+x = eval(input("Input Number 1 : "))
+y = eval(input("Input Number 2 : "))
+x = Sum_1(x)
+y = Sum_2(y)
+x,y = Swap(x,y)
+print(x)
+print(y)

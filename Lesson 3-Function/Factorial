@@ -1,0 +1,9 @@
+def Factorial(number):
+    if(number == 1):
+        return 1
+    return number * Factorial(number-1)
+
+x = eval(input("Enter a positive integer : "))
+
+y = Factorial(x)
+print(x,"! is ", y)

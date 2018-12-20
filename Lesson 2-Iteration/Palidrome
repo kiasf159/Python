@@ -1,0 +1,16 @@
+# This is Palindrome Check Program
+import re
+pattern = re.compile(r'\s+') #remove module
+
+str1 = input("Enter a word or phrase : ")
+str2 = ""
+for letter in str1:
+    str2 = letter + str2
+print(str2)    
+#remove blank
+str1 = re.sub(pattern, '',str1)
+str2 = re.sub(pattern, '',str2)
+if str1 == str2:
+    print("This is Palindrome.")
+else:
+    print("This is not Palindrome.")

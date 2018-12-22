@@ -1,0 +1,31 @@
+import random
+
+def main():
+    array = [0]*10
+    for x in range(10):
+        array[x] = random.randrange(1,100)
+    print(array)
+    answer = input("Ascending Order? : (Y or N)")
+    if(answer == 'Y'):
+        Ascending(array)
+    elif(answer == 'N'):
+        Descending(array)
+    else:
+        print("Input Wrong Word")
+    print(array)
+
+def Ascending(array):
+    length = len(array) - 1
+    for x in range(length):
+        for y in range(length-x):
+            if array[y] > array[y+1]:
+                array[y], array[y+1] = array[y+1], array[y]
+        
+def Descending(array):
+    length = len(array) - 1
+    for x in range(length):
+        for y in range(length-x):
+            if array[y] < array[y+1]:
+                array[y], array[y+1] = array[y+1], array[y]
+
+main()

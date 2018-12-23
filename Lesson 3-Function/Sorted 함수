@@ -1,0 +1,12 @@
+list1 = ['blue', 'red', 'orange', 'pink', 'purple', 'green', 'yellow', 'beige']
+list2 = [27, 55, 48, 79, 91, 12, 38, 25, 109, 95, 88, 63, 41, 59, 174, 77, 56]
+
+print(sorted(list1))
+print(sorted(list2))
+
+print(sorted(list1, reverse=True))
+print(sorted(list2, reverse=True))
+
+print(sorted(list1, key=len))
+
+print(sorted("Sophisticated"))

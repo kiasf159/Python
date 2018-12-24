@@ -1,0 +1,44 @@
+def main():
+    file = "First.txt"
+    displayFile(file)
+    print()
+    display_List(file)
+    outfile = open("Second.txt", 'w')
+    create_file(outfile)
+    file2 = "Second.txt"
+    display_File(file2)
+    add_line()
+
+def displayFile(file):
+    infile = open(file, 'r')
+    for line in infile:
+        print(line, end="")
+    infile.close()
+
+def display_List(file):
+    infile = open(file, 'r')
+    listPres = [line.rstrip() for line in infile]
+    infile.close()
+    print(listPres) 
+
+def create_file(outfile):
+    list1 = ["Alpha", "Beta", "Gamma", "Delta"]
+    for x in range(len(list1)):
+        list1[x] = list1[x] + "\n"
+    outfile.writelines(list1)
+    outfile.close()
+
+def display_File(file):
+    infile = open(file,'r')
+    listPres = [line.rstrip() for line in infile]
+    infile.close()
+    print(listPres)
+
+def add_line():
+    outfile = open("Second.txt", 'a')
+    list1 = ["Omega\n", "Theta\n"]
+    outfile.writelines(list1)
+    outfile.write("Ferma\n")
+    outfile.close()
+    
+main()

@@ -1,0 +1,22 @@
+def main():
+    infile = open("File1.txt", 'r') #Alpha Bravo Charlie
+    firstSet = {line.rstrip() + "\n" for line in infile}
+    infile.close()
+    infile = open("File2.txt", 'r') #Bravo Delta
+    secondSet = {line.rstrip() + "\n" for line in infile}
+    infile.close()
+    # Create files containing the union, intersection, and difference of
+    # the original two files.
+    outfile = open("Union.txt", 'w') #Alpha Bravo Charlie Delta
+    outfile.writelines(firstSet.union(secondSet))
+    outfile.close()
+    outfile = open("Intersection.txt", 'w') #Bravo
+    outfile.writelines(firstSet.intersection(secondSet))
+    outfile.close()
+    outfile = open("Difference.txt", 'w') #Alpha Charlie
+    outfile.writelines(firstSet.difference(secondSet))
+    outfile.close()
+  
+main()                  
+
+

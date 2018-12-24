@@ -1,0 +1,17 @@
+def main():
+    list1 = [1,1,1,1,1,2,3,4,5,6]
+    remove_overlap = set(list1)
+    print(remove_overlap)
+    list1 = list(remove_overlap)
+    print(list1)
+
+    remove_overlap.add(5)
+    remove_overlap.add(7)
+    print(remove_overlap)
+    remove_overlap.discard(1)
+    print(remove_overlap)
+    
+    remove_overlap.discard(2)
+    number = tuple(remove_overlap)
+    print(number)
+main()

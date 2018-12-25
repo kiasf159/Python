@@ -1,0 +1,25 @@
+try:
+    a = [1,2]
+    # print(a[3]) - IndexError
+    # infile = open("a.txt", 'r') - FileNotFoundError
+    # 4/0 - ZeroDivisionError
+    # int("ABC") - ValueError
+    b = {'a':"alpha",'b':"bravo",'c':"charlie"}
+    letter = input("Enter a, b or c : ")
+    print(b[letter])
+except ZeroDivisionError:
+    print("0으로 나눌 수 없습니다.")
+except IndexError:
+    print("인덱싱 할 수 없습니다.")
+except FileNotFoundError:
+    print("파일을 열 수 없습니다.")
+except ValueError:
+    print("값 오류 입니다.")
+except KeyError:
+    print("잘못된 입력입니다.")
+except NameError:
+    print("정의되지 않은 것이 있습니다.")
+else: #except가 하나도 실행되지 않았을 때
+    print("정상적으로 작동하였습니다.")
+finally: # 모두 실행된 후
+    infile.close()

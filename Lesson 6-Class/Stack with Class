@@ -1,0 +1,33 @@
+def main():
+    stk = Stack()
+    stk.Push(3)
+    stk.Push(4)
+    stk.Push('One')
+    stk.Size()
+    stk.Pop()
+    stk.Size()
+    stk.Push('Hello')
+    stk.Size()
+    stk.Pop()
+    stk.Size()
+class Stack:
+    def __init__(self):
+        self.top = 0
+        self.stack = []
+
+    def Size(self):
+        if (self.top) == 0:
+            return print("The stack is empty!")
+        return print("Stack Size : ", self.top)
+
+    def Push(self, push):
+        self.stack.append(push)
+        self.top = self.top + 1
+        return print(self.stack)
+
+    def Pop(self):
+        self.stack.pop()
+        self.top = self.top - 1
+        return print(self.stack)
+
+main()

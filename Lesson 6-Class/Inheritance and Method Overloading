@@ -1,0 +1,27 @@
+class Country:
+    def __init__(self, name, capital):
+        self.name = name
+        self.capital = capital
+
+    def info(self):
+        print("국가 : %s, 수도 : %s (by Parent)" %(self.name, self.capital))
+
+class Input(Country):
+    def __init__(self, name, capital):
+        self.name = name
+        self.capital = capital
+    def info(self):
+        print("국가 : %s, 수도 : %s (by Descendant)" %(self.name, self.capital))
+
+class Input2(Country):
+    pass
+        
+
+country = Country("Korea", "Seoul")
+country.info()
+
+country = Input("Japan", "Tokyo")
+country.info()
+
+country = Input2("China", "Beijing")
+country.info()

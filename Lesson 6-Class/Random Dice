@@ -1,0 +1,38 @@
+import random
+
+class PairOfDice: #class 자체를 다른 py파일에서 import 할 수 있음.
+    def __init__(self):
+        self._redDie = 0
+        self._blueDie = 0
+
+    def getRedDice(self):
+        return self._redDie
+
+    def getBlueDice(self):
+        return self._blueDie
+
+    def roll(self):
+        self._redDie = random.choice(range(1,7))
+        self._blueDie = random.choice(range(1,7))
+
+    def sum(self):
+        return self._redDie + self._blueDie
+
+# Practice 1
+Dice = PairOfDice()
+Dice.roll()
+print("Red Dice : ", Dice.getRedDice())
+print("Blue Dice : ", Dice.getBlueDice())
+print("Total : ", Dice.sum())
+print("\n")
+
+# Practice 2
+Dice.roll()
+print("Player1 : ", Dice.getRedDice())
+print("Player2 : ", Dice.getBlueDice())
+if(Dice.getRedDice() > Dice.getBlueDice()):
+    print("Player1 wins")
+elif(Dice.getRedDice() < Dice.getBlueDice()):
+    print("Player2 wins")
+else:
+    print("Tie.")

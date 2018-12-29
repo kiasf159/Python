@@ -1,0 +1,34 @@
+from collections import deque
+
+def main():
+    q = Deque()
+    q.Enqueue(3)
+    q.Enqueue(4)
+    q.Size()
+    q.Dequeue()
+    q.Size()
+
+
+class Deque:
+    def __init__(self):
+        self.front = 0
+        self.rear = 0
+        self.que = deque([])
+
+    def Size(self):
+        if self.front == self.rear:
+            print("Deque is empty!")
+        return print("Deque size : ", self.rear - self.front)
+    
+    def Enqueue(self, enqueue):
+        self.que.append(enqueue)
+        self.rear = self.rear + 1
+        return print(self.que)
+
+    def Dequeue(self):
+        self.que.popleft()
+        self.front = self.front + 1
+        return print(self.que)
+        
+
+main()

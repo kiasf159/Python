@@ -1,0 +1,36 @@
+# Just Explanation.
+import random  # import random library
+from random import randint # import one object from random
+from random import * # import all object
+import random as rd
+print(rd.randint(0,9)) # import random but select new name
+
+import math, cmath # mathematics module
+
+import os # provide operate system module
+a = os.path.join(' ', ' ')
+print a
+
+import sys # search module path
+sys.path.apped(' ')
+
+import datetime
+print datetime.datetime.today()
+print datetime.date.today()
+print datetime.date.utcnow()
+
+import time # standard of 1970
+
+import urllib # open webpage or download data
+page = urllib.urlopen('https://www.google.com')
+html = page.read()
+
+import json # web service usually return data of json(replace XML)
+
+import pickle # 직렬화?
+
+import sqlite3 # Database module
+
+import numpy # 배열을 효율적으로 다루고, 다차원 배열을 다루며, 배열을 조작하고자 할 때 사용
+
+import matplotlib # graphic module 

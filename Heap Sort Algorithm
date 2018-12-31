@@ -1,0 +1,70 @@
+# Maximum Heap
+
+def heap_parent(i):
+    return int((i-1)/2)
+
+def heap_left_child(i):
+    return 2 * i + 1
+
+def heap_right_child(i):
+    return 2 * i + 2
+
+def heapify(A):
+    for i in xrange(int(len(A)/2)-1,-1,-1):
+        heapify_one(A,i)
+
+def heapify_one(A,i,heapsize=None):
+    if heapsize is None:
+        heapsize = len(A)
+    left = 2*i+1
+    right = 2*i+2
+    if left < heapsize and A[left] > A[i]:
+        largest = left
+    else:
+        largest = i
+    if right < heapsize and A[right] > A[largest]:
+        largest = right
+    if largest != i:
+        (A[i], A[largest]) = (A[largest], A[i])
+        heapify_one(A, largest, heapsize)
+
+def heapsort(A):
+    heapify(A)
+    n = len(A)
+    for i in xrange(n-1,0,-1):
+        (A[0],A[i]) = (A[i], A[0])
+        heapify_one(A,0,i)
+        
+def heap_pop(A):
+    if len(A) < 1:
+        raise RuntimeError('Heap Underflow')
+    largest = A[0]
+    A[0] = A[len(A)-1]
+    del A[len(A)-1]
+    heapify_one(A,0)
+    return largest
+
+def heap_push(A, value):
+    A.append(value)
+    i = len(A)-1
+    while i > 0:
+        j = heap_parent(i)
+        if A[j] < A[i]:
+            (A[i],A[j],i) = (A[j],A[i],j)
+        else:
+            break
+
+a = [6,2,7,9,3]
+heap = []
+for element in a: heap_push(heap,element)
+while heap:
+    print(heap_pop(heap))
+
+# Minimum Heap
+
+from heapq import heappop, heappush
+a = [6,2,7,9,3]
+heap = []
+for element in a: heappush(heap, element)
+while heap:
+    print(heappop(heap))

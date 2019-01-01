@@ -1,0 +1,64 @@
+class Cluster(object):
+    def __init__(self,points,metric,weights=None):
+        self.points, self.metric = points, metric
+        self.k = len(points)
+        self.w = weights or [1,0]*self.k
+        self.q = dict((i,[i]) for i,e in enumerate(points))
+        self.d = []
+        for i in xrange(self.k):
+            for j in xrange(i+1,self,k):
+                m = metric(points[i],points[j])
+                if not m is None:
+                    self.d.append((m,i,j))
+        self.d.sort()
+        self.dd = []
+
+    def parent(self,i):
+        while isinstance(i, int): (parent, i) = (i, self.q[i])
+        return parent, i
+
+    def step(self):
+        if self.k > 1:
+            (self,r,i,j),self.d = self.d[0],self.d[1:] #Find New clusters to join
+            i,x = self.parent(i)
+            j,y = self.parent(j)
+            x = x + y
+            self.q[j] = i
+            self.k = self.k - 1
+            new_d = []
+            old_d = []
+            for (r,h,k) in self.d:
+                if h in (i,j):
+                    a,b = old_d.get(k,(0.0,0.0))
+                    old_d[k] = a + self.w[k]*r,b+self.w[k]
+                elif k in (i,j):
+                    a,b = old_d.get(h,(0.0,0.0))
+                    old_d[h] = a + self.w[h]*r,b+self.w[h]
+                else:
+                    new_d.append((r,h,k))
+            new_d += [(a/b,i,k) for k,(a,b) in old_d.items()]
+            new_d.sort()
+            self.d = new_d
+            self.w[i] = self.w[i]+self.w[j]
+            self.v = [s for s in self.q.values() if isinstance(s,list)]
+            self.dd.append((self.r,len(self.v)))
+        return self.r, self.v
+
+    def find(self,k):
+        if self.k<k:
+            self.__init__(self.points, self.metric)
+        while self.k>k:
+            self.step()
+        return self.r, self.v
+
+# main
+def metric(a,b):
+    return math.sqrt(sum((x-b[i])**2 for i,x in enumerate(a)))
+points = [[random.gauss(i % 5,0.3) for j in xrange(10)] for i in xrange(200)]
+c = Cluster(points,metric)
+r, clusters = c.find(1)
+Canvas(title='clustering example', xlab='distance', ylab='number of clusters'
+       ).plot(c.dd[150:]).save('clustering1.png')
+Canvas(title='clustering example (2d projection)', xlab='p[0]', ylab='p[1]'
+       ).ellipses(p[:2] for p in points).save('clustering2.png')
+                
